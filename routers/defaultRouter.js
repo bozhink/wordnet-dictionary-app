@@ -1,9 +1,11 @@
-var express = require('express');
+var express = require('express')
+    WordDAO = require('../data/words').WordDAO;
 
-module.exports = function (db) {
+module.exports = function (db, collectionName) {
     'use strict';
     
     var router = express.Router();
+    var words = new WordDAO(db, collectionName);
 
     router.get('/', function(req, res) {
         'use strict';
@@ -16,10 +18,13 @@ module.exports = function (db) {
 
         var text = req.body['search-text'];
 
-        res.render('response', {});
-        // items.addReview(itemId, review, name, stars, function(itemDoc) {
-        //     res.redirect('/item/' + itemId);
-        // });
+        words.searchText(text, function (err, words) {
+            if (!!err) {
+                res.render('error', { err: err });
+            } else {
+                res.render('response', { text: text, words: words });
+            }
+        });
     });
 
     return router;

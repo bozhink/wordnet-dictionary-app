@@ -23,29 +23,8 @@
     {% include "includes/nav.html" %}
 
     <main class="container">
-        <h1>Definitions</h1>
-        
-        <p class="submitted-text">{{text}}</p>
-        
-        {% if words %}
-        
-            {% for word in words %}
-            
-            <dl class="dl-vertical word-definitions">
-                <dt>{{word.word}}</dt>
-                
-                {% for definition in word.definitions %}
-                
-                <dd><strong><em>{{definition.type}}</em>:</strong> {{definition.definition}}</dd>
-                
-                {% endfor %}
-            </dl>
-            
-            {% endfor %}
-                
-        
-        {% endif %}
-        
+        <h1>Error</h1>
+        <p>{{err}}</p>
     </main>
 
     {% include "includes/footer.html" %}

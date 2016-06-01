@@ -26,14 +26,14 @@ MongoClient.connect(config.connectionString, function(err, db) {
     assert.equal(null, err);
     console.log('Successfully connected to MongoDB.');
 
-    var router = require('./routers/defaultRouter')(db);
+    var router = require('./routers/defaultRouter')(db, config.collectionName);
 
     app.use('/', router);
 
     // Start the server listening
     var server = app.listen(3000, function() {
         var port = server.address().port;
-        console.log('Dictionary app is listening on http://localhost:%s.', port);
+        console.log('Dictionary app is listening on http://localhost:%s', port);
     });
 
 });
