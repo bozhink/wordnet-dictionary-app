@@ -1,0 +1,26 @@
+{
+  "name": "wordnet-dictionary-app",
+  "description": "A NodeJS + Express + MongoDB dictionary app powered by WordNet",
+  "main": "app.js",
+  "authors": [
+    "Bozhin Karaivanov"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "WordNet"
+  ],
+  "homepage": "https://github.com/bozhink/wordnet-dictionary-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}
